@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Projects | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+  <a href="index.html" class="logo">Koushik</a>
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="certifications.html">Certifications</a>
+    <a href="achievements.html">Achievements</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<main>
+  <!-- Your section content here -->
+     <div class="container">
+    <h1>Projects</h1>
+    <div class="card">
+      <h2>Learning Platform Recommendation System</h2>
+      <p>Suggested personalized learning platforms based on user interests.</p>
+      <p><b>Tech:</b> Python, Pandas, Scikit-learn, Matplotlib</p>
+    </div>
+    <div class="card">
+      <h2>Credit Score Classification</h2>
+      <p>Classified customers’ credit scores using financial data.</p>
+      <p><b>Tech:</b> Python, Pandas, Seaborn, Matplotlib</p>
+    </div>
+    <div class="card">
+      <h2>Titanic Survival Prediction</h2>
+      <p>Predicted passenger survival using Titanic dataset.</p>
+      <p><b>Tech:</b> Python, Scikit-learn, Pandas, Matplotlib</p>
+    </div>
+  </div>
+</main>
+
+<footer>© 2025 Koushik Reddy</footer>
+
+<script>
+  // Toggle mobile menu
+  function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('active');
+  }
+
+  // Fade-in effect for cards when scrolling
+  const cards = document.querySelectorAll('.card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+  cards.forEach(card => observer.observe(card));
+</script>
+</body>
+</html>

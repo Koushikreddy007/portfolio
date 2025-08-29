@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Koushik Reddy | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Koushik</a>
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="certifications.html">Certifications</a>
+    <a href="achievements.html">Achievements</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<main>
+  <!-- Your section content here -->
+   <div class="container" style="text-align:center;">
+    <h1>Venkata Sai Koushik Reddy Palagiri</h1>
+    <h2>Software Engineer | C++ Developer</h2>
+    <p>Motivated software engineer with strong C++ skills and DSA expertise.</p>
+    <a class="btn" href="https://linkedin.com/in/venkata-sai-koushik-reddy-palagiri-6b043a288">LinkedIn</a>
+    <a class="btn" href="https://github.com/Koushikreddy007">GitHub</a>
+    <a class="btn" href="https://leetcode.com/KoushikReddy75">LeetCode</a>
+    <a class="btn" href="resume.pdf">Resume</a>
+  </div>
+</main>
+
+<footer>© 2025 Koushik Reddy</footer>
+
+<script>
+  // Toggle mobile menu
+  function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('active');
+  }
+
+  // Fade-in effect for cards when scrolling
+  const cards = document.querySelectorAll('.card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+  cards.forEach(card => observer.observe(card));
+</script>
+</body>
+</html>

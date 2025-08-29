@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Certifications | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Koushik</a>
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="certifications.html">Certifications</a>
+    <a href="achievements.html">Achievements</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<main>
+  <!-- Your section content here -->
+   <div class="container">
+    <h1>Certifications</h1>
+    <ul>
+      <li>Technical English for Engineers – NPTEL</li>
+      <li>Essential C++ Programming (Beginner to Advanced) – Udemy</li>
+      <li>Machine Learning for Engineering and Science Applications – NPTEL</li>
+    </ul>
+  </div>
+</main>
+
+<footer>© 2025 Koushik Reddy</footer>
+
+<script>
+  // Toggle mobile menu
+  function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('active');
+  }
+
+  // Fade-in effect for cards when scrolling
+  const cards = document.querySelectorAll('.card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+  cards.forEach(card => observer.observe(card));
+</script>
+</body>
+</html>

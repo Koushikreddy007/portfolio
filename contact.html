@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <a href="index.html" class="logo">Koushik</a>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="certifications.html">Certifications</a>
+      <a href="achievements.html">Achievements</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <h1 style="text-align:center;">Get in Touch ✨</h1>
+      <div class="contact-section">
+        
+        <!-- Left: Contact Info -->
+        <div class="contact-info card">
+          <h2>Contact Information</h2>
+          <p><i class="ri-mail-line"></i> <a href="mailto:palagirikoushikreddy92@gmail.com">palagirikoushikreddy92@gmail.com</a></p>
+          <p><i class="ri-phone-line"></i> +91-7013392873</p>
+          <p><i class="ri-linkedin-box-fill"></i> <a href="https://linkedin.com/in/venkata-sai-koushik-reddy-palagiri-6b043a288" target="_blank">LinkedIn</a></p>
+          <p><i class="ri-github-fill"></i> <a href="https://github.com/Koushikreddy007" target="_blank">GitHub</a></p>
+          <p><i class="ri-code-box-fill"></i> <a href="https://leetcode.com/KoushikReddy75" target="_blank">LeetCode</a></p>
+        </div>
+
+        <!-- Right: Contact Form -->
+        <div class="contact-form card">
+          <h2>Send Me a Message</h2>
+          <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn submit-btn">Send Message 🚀</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>© 2025 Koushik Reddy</footer>
+
+<script>
+  // Reveal cards on load (for contact page specifically)
+  document.querySelectorAll('.card').forEach(card => {
+    card.classList.add('visible');
+  });
+</script>
+
+</body>
+</html>
