@@ -53,11 +53,22 @@
   <footer>© 2025 Koushik Reddy</footer>
 
 <script>
-  // Reveal cards on load (for contact page specifically)
-  document.querySelectorAll('.card').forEach(card => {
-    card.classList.add('visible');
-  });
+  function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('active');
+  }
+
+  // Animate cards on scroll
+  const cards = document.querySelectorAll('.card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+  cards.forEach(card => observer.observe(card));
 </script>
+
 
 </body>
 </html>

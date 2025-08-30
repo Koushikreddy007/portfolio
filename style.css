@@ -1,143 +1,220 @@
+/* ===== Import Japanese-Style Font ===== */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap');
+
+:root {
+  --j-red: #a6001a;       /* Crimson (Kurenai) */
+  --j-red-bright: #e60026; /* Vermilion */
+  --j-black: #0b0b0b;      /* Smoky black */
+  --j-gray: #1c1c1c;       /* Charcoal */
+  --j-white: #f5f5f0;      /* Rice paper white */
+}
+
+/* ===== Base Styles ===== */
 body {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: #f6fff8;
-    color: #333;
+    font-family: 'Rajdhani', sans-serif;
+    background: var(--j-black);
+    color: var(--j-white);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
+/* ===== Smoky Red Background Effect ===== */
+body::before {
+    content: "";
+    position: fixed;
+    top: -20%;
+    left: -20%;
+    width: 140%;
+    height: 140%;
+    background: radial-gradient(circle at 30% 30%, rgba(166, 0, 26, 0.3) 0%, transparent 70%),
+                radial-gradient(circle at 70% 60%, rgba(230, 0, 38, 0.25) 0%, transparent 70%),
+                radial-gradient(circle at 50% 80%, rgba(230, 0, 38, 0.2) 0%, transparent 80%);
+    filter: blur(60px);
+    animation: smokeMove 20s ease-in-out infinite alternate;
+    z-index: -1; /* Behind everything */
+}
+
+
+/* Smoky drifting animation */
+@keyframes smokeMove {
+    0% {
+        transform: translate(0px, 0px) scale(1);
+    }
+    50% {
+        transform: translate(40px, -30px) scale(1.1);
+    }
+    100% {
+        transform: translate(-30px, 20px) scale(1.05);
+    }
+}
+
+
 main {
     flex: 1;
 }
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+/* ===== Navbar ===== */
 nav {
-    background: #6b9080;
-    padding: 15px;
+    background: rgba(15, 15, 15, 0.95);
+    padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 4px 15px rgba(166, 0, 26, 0.6);
 }
 nav .logo {
-    color: white;
+    color: var(--j-red-bright);
     font-weight: 700;
-    font-size: 20px;
+    font-size: 22px;
     text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 nav .nav-links {
     display: flex;
-    gap: 20px;
+    gap: 25px;
 }
 nav .nav-links a {
-    color: white;
+    color: var(--j-white);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
+    position: relative;
     transition: 0.3s;
 }
-nav .nav-links a:hover {
-    color: #cce3de;
-    transform: scale(1.1);
+nav .nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--j-red);
+    transition: width 0.3s ease;
+}
+nav .nav-links a:hover::after {
+    width: 100%;
 }
 .menu-icon {
     display: none;
     font-size: 26px;
-    color: white;
+    color: var(--j-red-bright);
     cursor: pointer;
 }
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 50px 20px;
-    animation: fadeIn 1s ease-in-out;
-}
+
+/* ===== Headings ===== */
 h1, h2 {
-    color: #6b9080;
+    color: var(--j-red-bright);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(166, 0, 26, 0.7);
 }
+
+/* ===== Cards ===== */
 .card {
-    background: #fff;
-    padding: 20px;
-    margin: 15px 0;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-    transition: 0.3s;
+    background: rgba(28, 28, 28, 0.85);
+    border: 1px solid rgba(166, 0, 26, 0.5);
+    padding: 25px;
+    margin: 20px 0;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(166, 0, 26, 0.25);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
     opacity: 0;
     transform: translateY(30px);
 }
 .card.visible {
     opacity: 1;
     transform: translateY(0);
-    transition: all 0.6s ease;
 }
+.card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(166, 0, 26, 0.5);
+}
+
+/* ===== Buttons ===== */
 .btn {
     display: inline-block;
-    background: #a4c3b2;
-    color: white;
-    padding: 12px 18px;
-    margin-top: 10px;
-    border-radius: 8px;
+    background: linear-gradient(45deg, var(--j-red), var(--j-red-bright));
+    color: var(--j-white);
+    padding: 12px 22px;
+    margin-top: 12px;
+    border-radius: 30px;
     text-decoration: none;
-    transition: 0.3s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 12px rgba(230, 0, 38, 0.6);
 }
 .btn:hover {
-    background: #6b9080;
     transform: scale(1.1);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    box-shadow: 0 0 20px rgba(230, 0, 38, 0.9), 0 0 40px rgba(166, 0, 26, 0.6);
 }
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #cce3de;
-    margin-top: auto;
+
+/* Ripple Effect */
+.btn:active::after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 0.6s linear;
 }
-.contact-section {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-top: 30px;
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
 }
-.contact-info, .contact-form {
-    flex: 1;
-    min-width: 300px;
-}
-.contact-info p {
-    font-size: 16px;
-    margin: 12px 0;
-}
-.contact-info i {
-    color: #6b9080;
-    margin-right: 8px;
-    font-size: 18px;
-}
+
+/* ===== Contact Form ===== */
 .contact-form form {
     display: flex;
     flex-direction: column;
+    gap: 25px;
 }
-.contact-form input, .contact-form textarea {
-    padding: 12px;
-    margin: 10px 0;
-    border: 2px solid #cce3de;
-    border-radius: 8px;
-    font-size: 15px;
-    outline: none;
-    transition: 0.3s;
-}
-.contact-form input:focus, .contact-form textarea:focus {
-    border-color: #6b9080;
-    box-shadow: 0 0 8px #a4c3b2;
-}
-.submit-btn {
-    background: linear-gradient(45deg, #6b9080, #a4c3b2);
+.contact-form input,
+.contact-form textarea {
+    background: transparent;
     border: none;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    border-bottom: 2px solid #444;
+    padding: 12px;
+    color: var(--j-white);
+    font-size: 16px;
+    transition: all 0.3s;
 }
-.submit-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--j-red-bright);
+    box-shadow: 0 2px 10px rgba(230, 0, 38, 0.3);
+}
+.contact-form label {
+    position: absolute;
+    left: 10px;
+    top: -10px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--j-gray);
+    color: #aaa;
+    margin-top: auto;
+    font-size: 14px;
+    border-top: 1px solid #222;
 }
 
 /* ===== Animations ===== */
@@ -146,12 +223,12 @@ footer {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== Responsive Styles ===== */
+/* ===== Responsive ===== */
 @media (max-width: 768px) {
     nav .nav-links {
         display: none;
         flex-direction: column;
-        background: #6b9080;
+        background: var(--j-gray);
         position: absolute;
         top: 60px;
         right: 0;

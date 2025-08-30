@@ -44,12 +44,11 @@
 <footer>© 2025 Koushik Reddy</footer>
 
 <script>
-  // Toggle mobile menu
   function toggleMenu() {
     document.querySelector('.nav-links').classList.toggle('active');
   }
 
-  // Fade-in effect for cards when scrolling
+  // Animate cards on scroll
   const cards = document.querySelectorAll('.card');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -60,5 +59,6 @@
   }, { threshold: 0.2 });
   cards.forEach(card => observer.observe(card));
 </script>
+
 </body>
 </html>

@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Certifications | Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- ===== Navbar ===== -->
 <nav>
   <a href="index.html" class="logo">Koushik</a>
   <div class="menu-icon" onclick="toggleMenu()">☰</div>
@@ -19,27 +23,66 @@
   </div>
 </nav>
 
+<!-- ===== Main Content ===== -->
 <main>
-  <!-- Your section content here -->
-   <div class="container">
+  <div class="container" style="text-align:center;">
     <h1>Certifications</h1>
-    <ul>
-      <li>Technical English for Engineers – NPTEL</li>
-      <li>Essential C++ Programming (Beginner to Advanced) – Udemy</li>
-      <li>Machine Learning for Engineering and Science Applications – NPTEL</li>
-    </ul>
+    <p>Some of my certifications that validate my learning journey and technical skills.</p>
+  </div>
+
+  <!-- Brush Divider -->
+  <div class="divider">
+    <svg viewBox="0 0 1000 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,50 Q250,10 500,50 T1000,50 L1000,100 L0,100 Z" 
+            fill="url(#brushGradient)" />
+      <defs>
+        <linearGradient id="brushGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#a6001a" />
+          <stop offset="50%" stop-color="#e60026" />
+          <stop offset="100%" stop-color="#a6001a" />
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <!-- Certification Cards -->
+  <div class="container">
+    <div class="card">
+      <h2>Technical English for Engineers</h2>
+      <p>Issued by NPTEL • 2024</p>
+      <a class="btn" href="#" target="_blank">View Certificate</a>
+    </div>
+
+    <div class="card">
+      <h2>Essential C++ Programming (Beginner to Advanced)</h2>
+      <p>Issued by Udemy • 2023</p>
+      <a class="btn" href="#" target="_blank">View Certificate</a>
+    </div>
+
+    <div class="card">
+      <h2>Machine Learning for Engineering and Science Applications</h2>
+      <p>Issued by NPTEL • 2024</p>
+      <a class="btn" href="#" target="_blank">View Certificate</a>
+    </div>
+
+    <div class="card">
+      <h2>SQL Intermediate</h2>
+      <p>Issued by HackerRank • 2023</p>
+      <a class="btn" href="#" target="_blank">View Certificate</a>
+    </div>
   </div>
 </main>
 
+<!-- ===== Footer ===== -->
 <footer>© 2025 Koushik Reddy</footer>
 
+<!-- ===== Scripts ===== -->
 <script>
-  // Toggle mobile menu
   function toggleMenu() {
     document.querySelector('.nav-links').classList.toggle('active');
   }
 
-  // Fade-in effect for cards when scrolling
+  // Animate cards on scroll
   const cards = document.querySelectorAll('.card');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -50,5 +93,6 @@
   }, { threshold: 0.2 });
   cards.forEach(card => observer.observe(card));
 </script>
+
 </body>
 </html>
